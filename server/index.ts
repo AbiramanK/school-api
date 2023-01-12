@@ -10,6 +10,7 @@ async function startServer() {
   const schema = await buildSchema({
     resolvers: [__dirname + "/../app/**/resolver.{ts,js}"],
     authChecker,
+    emitSchemaFile: true,
   });
 
   const server = new ApolloServer({
