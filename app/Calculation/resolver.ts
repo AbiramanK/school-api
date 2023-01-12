@@ -66,7 +66,7 @@ export class CalculationResolver {
       offset: input.cursor,
     });
 
-    const cursor = calculations?.rows?.length!;
+    const cursor = calculations?.rows?.length! + input?.cursor;
     const hasMore = cursor < calculations?.count;
     return {
       edgeds: calculations?.rows!,
