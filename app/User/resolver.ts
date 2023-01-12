@@ -96,7 +96,8 @@ export class UserResolver {
         token,
       };
     } catch (error: any) {
-      throw new Error(`Password encryption failed: ${error?.message}`);
+      console.error(`Password encryption failed: ${error?.message}`);
+      throw new Error(error?.message);
     }
   }
 
