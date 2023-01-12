@@ -35,7 +35,6 @@ export class UserModel extends Model {
   public declare email?: string;
 
   @Column
-  @Field({ nullable: false })
   public declare password?: string;
 
   @Column
