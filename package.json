@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "rimraf ./build && tsc",
-    "start": "yarn build && node build/index.js",
+    "start": "yarn build && node build/server/index.js",
     "queue": "ts-node server/queue.ts",
     "migration:new": "ts-node -e 'import {createMigration} from \"./utils\"; createMigration()'",
     "migration:compile": "rimraf ./.bin && tsc -p migrations",
