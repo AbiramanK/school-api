@@ -11,7 +11,8 @@
     "migration:new": "ts-node -e 'import {createMigration} from \"./utils\"; createMigration()'",
     "migration:compile": "rimraf ./.bin && tsc -p migrations",
     "db:migrate": "yarn migration:compile && sequelize-cli db:migrate",
-    "db:migrate:undo": "yarn migration:compile && sequelize-cli db:migrate:undo"
+    "db:migrate:undo": "yarn migration:compile && sequelize-cli db:migrate:undo",
+    "deploy": "yarn install && yarn build && cp ./.env ./build && cd build && yarn db:migrate && node server/index.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
