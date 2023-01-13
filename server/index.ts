@@ -30,7 +30,7 @@ async function startServer() {
 
   try {
     await sequelize.authenticate();
-    console.log("✔✔ Databse Connection has been established successfully.");
+    console.info("✔✔ Databse Connection has been established successfully.");
   } catch (error) {
     console.error("❌❌ Database Unable to connect to the database:", error);
   }
@@ -38,7 +38,7 @@ async function startServer() {
   const PORT = parseInt(process.env.NODE_APP_SERVER_PORT!) ?? 8000;
 
   server.listen({ port: PORT }).then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
+    console.info(`🚀  Server ready at ${url}`);
   });
 }
 

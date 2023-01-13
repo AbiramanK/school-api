@@ -106,7 +106,6 @@ export class UserResolver {
     const { email, password } = input;
 
     const user = await isUserExist(email);
-    console.log("user detail: ", user);
     if (!user) {
       throw new Error("User not found!");
     }
