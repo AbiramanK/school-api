@@ -1,8 +1,10 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import "reflect-metadata";
-import { ApolloServer } from "apollo-server";
+// import { ApolloServer } from "apollo-server";
 import { buildSchema } from "type-graphql";
+import express from "express";
+import { ApolloServer } from "apollo-server-express";
 import { sequelize } from "./dbconfig";
 import { authChecker } from "../middlewares/AuthMiddleware";
 
@@ -40,9 +42,24 @@ async function startServer() {
 
   const HOST = process.env.NODE_APP_SERVER_HOST ?? "localhost";
 
-  server.listen({ host: HOST, port: PORT }).then(({ url }) => {
-    console.info(`🚀  Server ready at ${url}`);
+  await server.start();
+
+  const app = express();
+
+  app.get("/", (req, res) => {
+    res.sendStatus(200);
   });
+
+  server.applyMiddleware({ app });
+
+  var listener = app.listen({ host: HOST, port: PORT }, function () {
+    console.log(listener?.address());
+    console.info(`🚀  Server ready at http://${HOST}:${PORT}`);
+  });
+
+  // server.listen({ host: HOST, port: PORT }).then(({ url }) => {
+  //   console.info(`🚀  Server ready at ${url}`);
+  // });
 }
 
 startServer();
