@@ -26,6 +26,7 @@ async function startServer() {
         return context;
       }
     },
+    persistedQueries: false,
   });
 
   try {
