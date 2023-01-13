@@ -12,7 +12,7 @@
     "migration:compile": "rimraf ./.bin && tsc -p migrations",
     "db:migrate": "yarn migration:compile && sequelize-cli db:migrate",
     "db:migrate:undo": "yarn migration:compile && sequelize-cli db:migrate:undo",
-    "deploy": "yarn install && yarn build && cp ./.env ./build && cd build && yarn db:migrate && node server/index.js"
+    "deploy": "yarn install && yarn build && cp /etc/secrets/.env ./build && cd build && yarn db:migrate && node server/index.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
