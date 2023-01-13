@@ -36,9 +36,11 @@ async function startServer() {
     console.error("❌❌ Database Unable to connect to the database:", error);
   }
 
-  const PORT = parseInt(process.env.NODE_APP_SERVER_PORT!) ?? 8000;
+  const PORT = parseInt(process.env.NODE_APP_SERVER_PORT ?? "8001");
 
-  server.listen({ port: PORT }).then(({ url }) => {
+  const HOST = process.env.NODE_APP_SERVER_HOST ?? "localhost";
+
+  server.listen({ host: HOST, port: PORT }).then(({ url }) => {
     console.info(`🚀  Server ready at ${url}`);
   });
 }
