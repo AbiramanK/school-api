@@ -2,7 +2,7 @@
 Classroom activities done by both Master and Student.
 
 #### Project overview
-School Api provides easy solution for classroom activities for both Master and Students. Master can create a activity and post it in calssroom by master portel then Students can access those activities from classroom by student portal. We also provide white board with basic arithmetic operations for Master. Student can we all the posts posted by the Master in activity logs.
+School Api provides easy solution for classroom activities for both Master and Students. Master can create a activity and post it in calssroom by master portel then Students can access those activities from classroom by student portal. We also provide white board with basic arithmetic operations for Master. Student can see all the posts posted by the Master in activity logs.
 
 #### Project Requirement 
 * node >= v18.12.1
